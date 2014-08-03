@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - iphone@localhost" uuid="4a32687e-b37d-4191-a8e8-d1e88a725565">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>iphone.*</schema-pattern>
+      <default-schemas>iphone.*</default-schemas>
+    </data-source>
+  </component>
+</project>
+

@@ -1,0 +1,4 @@
+iphone_core:
+    resource: "@IphoneCoreBundle/Resources/config/routing.xml"
+    prefix:   /
+

@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+{% block title %}Index{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="large-12 columns">
+            <ul>
+                <li>
+                    <a href="{{ path('iphone_core_users') }}">User list</a>
+                </li>
+                <li>
+                    <a href="{{ path('iphone_core_user_incidents', {'username': 'Manuel'}) }}">Incidents for Manuel user</a>
+                </li>
+                <li>
+                    <a href="{{ path('iphone_core_restaurants_top')  }}">Top restaurants</a>
+                </li>
+                <li>
+                    <a href="{{ path('iphone_core_restaurants_worst')  }}">Worst restaurants by incident type</a>
+                </li>
+                <li>
+                    <a href="{{ path('iphone_core_user_friends', {'username': 'Manuel'})  }}">Friends for user Manuel</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/foundation.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/foundation-icons.css') }}" />
+
+    <script src="{{ asset('js/vendor/modernizr.js') }}"></script>
+</head>
+<body>
+{% block body %}{% endblock %}
+<script src="{{ asset('js/vendor/jquery.js') }}"></script>
+<script src="{{ asset('js/vendor/fastclick.js') }}"></script>
+<script src="{{ asset('js/foundation.min.js') }}"></script>
+<script>
+        $(document).foundation();
+    </script>
+{% block javascripts %}
+{% endblock %}
+</body>
+</html>
+

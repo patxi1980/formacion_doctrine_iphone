@@ -1,0 +1,31 @@
+{% extends '::base.html.twig' %}
+{% block title %}First 20 Users{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="large-12 columns">
+            <h1>User list</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Iphone\CoreBundle\Domain\Incident\Incident"
+            table="INCIDENT_LOG">
+
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO" />
+        </id>
+
+        <field name="incidentType" type="integer" nullable="false"/>
+        <field name="reseted" type="boolean" nullable="false"/>
+
+        <many-to-one target-entity="\Iphone\CoreBundle\Domain\User\User" field="user" inversed-by="incidents" />
+
+        <many-to-one target-entity="\Iphone\CoreBundle\Domain\Restaurant\Restaurant" field="restaurant" inversed-by="incidents" />
+    </entity>
+
+</doctrine-mapping>

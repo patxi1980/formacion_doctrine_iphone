@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="iphone_core_homepage" path="/">
+        <default key="_controller">IphoneCoreBundle:Default:index</default>
+    </route>
+
+    <route id="iphone_core_users" path="/users">
+        <default key="_controller">IphoneCoreBundle:User:list</default>
+    </route>
+
+    <route id="iphone_core_user_incidents" path="/user_incidents/{username}">
+        <default key="_controller">IphoneCoreBundle:User:incidentsByUser</default>
+    </route>
+
+    <route id="iphone_core_user_friends" path="/user_friends/{username}">
+        <default key="_controller">IphoneCoreBundle:User:friendsByUser</default>
+    </route>
+
+    <route id="iphone_core_restaurants_top" path="/top_restaurants">
+        <default key="_controller">IphoneCoreBundle:Restaurant:topRestaurants</default>
+    </route>
+
+    <route id="iphone_core_restaurants_worst" path="/worst_restaurants">
+        <default key="_controller">IphoneCoreBundle:Restaurant:Restaurants</default>
+    </route>
+</routes>

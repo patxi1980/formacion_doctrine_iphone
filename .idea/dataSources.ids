@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - iphone@localhost" uuid="4a32687e-b37d-4191-a8e8-d1e88a725565">
+    <database-info product="MySQL" version="5.6.17" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <schema name="" catalog="iphone"/>
+    <table name="ACTIVITY_LOG" schema="" catalog="iphone" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="activityType" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="text" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="restaurant_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="FKEB4819F42A053EFC" unique="false" columns="user_id"/>
+      <index name="FKEB4819F4E03CD03C" unique="false" columns="restaurant_id"/>
+    </table>
+    <table name="COMMENTS" schema="" catalog="iphone" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="text" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="restaurant_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FKABDCDF42A053EFC" columns="user_id" ref-table="USERS" ref-schema="" ref-catalog="iphone" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKABDCDF4E03CD03C" columns="restaurant_id" ref-table="RESTAURANTS" ref-schema="" ref-catalog="iphone" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FKABDCDF42A053EFC" unique="false" columns="user_id"/>
+      <index name="FKABDCDF4E03CD03C" unique="false" columns="restaurant_id"/>
+    </table>
+    <table name="INCIDENT_LOG" schema="" catalog="iphone" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="incidentType" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="reseted" sqlType="BIT" precision="1" scale="0" nullable="false" jdbcType="-7"/>
+      <column name="restaurant_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="FK29D6D2372A053EFC" unique="false" columns="user_id"/>
+      <index name="FK29D6D237E03CD03C" unique="false" columns="restaurant_id"/>
+    </table>
+    <table name="MyDomainObject" schema="" catalog="iphone" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="OPINIONS" schema="" catalog="iphone" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="rating" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="restaurant" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="text" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="username" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="id_opinion_original" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="id_opinion_original" unique="true" columns="id_opinion_original"/>
+      <index name="opinionRestaurantIndex" unique="false" columns="restaurant"/>
+    </table>
+    <table name="RESTAURANTS" schema="" catalog="iphone" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="address" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="atrapaloId" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="city" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cuisine" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="hash" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="latitude" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="longitude" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="priceCount" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="sumPrice" sqlType="FLOAT" precision="12" scale="0" nullable="true" jdbcType="7"/>
+      <column name="type" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="wished" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="telephone" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FKABDCDF4E03CD03C" table="COMMENTS" schema="" catalog="iphone" columns="restaurant_id"/>
+      <exported-key name="FKB958C0FEE03CD03C" table="USER_FAV_RESTAURANTS" schema="" catalog="iphone" columns="restaurant_id"/>
+      <exported-key name="FKF45008C4E03CD03C" table="USER_WIS_RESTAURANTS" schema="" catalog="iphone" columns="restaurant_id"/>
+      <index name="atrapaloId" unique="true" columns="atrapaloId"/>
+      <index name="hashIndex" unique="false" columns="hash"/>
+    </table>
+    <table name="USERS" schema="" catalog="iphone" type="TABLE">
+      <column name="id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="cellPhoneNumber" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="cellPhonePrefix" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="username" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cellPhoneWithPrefix" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FKABDCDF42A053EFC" table="COMMENTS" schema="" catalog="iphone" columns="user_id"/>
+      <exported-key name="FKB958C0FE2A053EFC" table="USER_FAV_RESTAURANTS" schema="" catalog="iphone" columns="user_id"/>
+      <exported-key name="FKBD6F65012A053EFC" table="USER_FRIENDS" schema="" catalog="iphone" columns="user_id"/>
+      <exported-key name="FKBD6F6501ED594B49" table="USER_FRIENDS" schema="" catalog="iphone" columns="friend_id"/>
+      <exported-key name="FKF45008C42A053EFC" table="USER_WIS_RESTAURANTS" schema="" catalog="iphone" columns="user_id"/>
+      <index name="email" unique="true" columns="email"/>
+    </table>
+    <table name="USER_FAV_RESTAURANTS" schema="" catalog="iphone" type="TABLE">
+      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="restaurant_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <foreign-key name="FKB958C0FE2A053EFC" columns="user_id" ref-table="USERS" ref-schema="" ref-catalog="iphone" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKB958C0FEE03CD03C" columns="restaurant_id" ref-table="RESTAURANTS" ref-schema="" ref-catalog="iphone" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FKB958C0FE2A053EFC" unique="false" columns="user_id"/>
+      <index name="FKB958C0FEE03CD03C" unique="false" columns="restaurant_id"/>
+    </table>
+    <table name="USER_FRIENDS" schema="" catalog="iphone" type="TABLE">
+      <column name="friend_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <foreign-key name="FKBD6F65012A053EFC" columns="user_id" ref-table="USERS" ref-schema="" ref-catalog="iphone" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKBD6F6501ED594B49" columns="friend_id" ref-table="USERS" ref-schema="" ref-catalog="iphone" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FKBD6F65012A053EFC" unique="false" columns="user_id"/>
+      <index name="FKBD6F6501ED594B49" unique="false" columns="friend_id"/>
+    </table>
+    <table name="USER_WIS_RESTAURANTS" schema="" catalog="iphone" type="TABLE">
+      <column name="user_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="restaurant_id" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <foreign-key name="FKF45008C42A053EFC" columns="user_id" ref-table="USERS" ref-schema="" ref-catalog="iphone" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKF45008C4E03CD03C" columns="restaurant_id" ref-table="RESTAURANTS" ref-schema="" ref-catalog="iphone" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FKF45008C42A053EFC" unique="false" columns="user_id"/>
+      <index name="FKF45008C4E03CD03C" unique="false" columns="restaurant_id"/>
+    </table>
+    <table name="changelog" schema="" catalog="iphone" type="TABLE">
+      <column name="CHANGE_NUMBER" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="COMPLETE_DT" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="APPLIED_BY" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="DESCRIPTION" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="CHANGE_NUMBER"/>
+    </table>
+  </data-source>
+</component>

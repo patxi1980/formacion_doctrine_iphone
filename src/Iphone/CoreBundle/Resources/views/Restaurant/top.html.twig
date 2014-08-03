@@ -1,0 +1,35 @@
+{% extends '::base.html.twig' %}
+{% block title %}Top restaurants{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="large-12 columns">
+            <h1>Top restaurants</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            <table>
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Restaurant</th>
+                    <th>Votes</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for restaurant in restaurants %}
+                    <tr>
+                        <td>{{ restaurant.id }}</td>
+                        <td>{{ restaurant.name }}</td>
+                        <td>
+                            {% for vote in 1..restaurant.cntUsers %}
+                                <i class="fi-heart"></i>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

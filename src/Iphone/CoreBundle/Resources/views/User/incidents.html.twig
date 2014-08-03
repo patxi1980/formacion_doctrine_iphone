@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+{% block title %}Incidents by user{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="large-12 columns">
+            <h1>User: {{ user.username }} (email {{ user.email }})</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-12 columns">
+            <h2>List of incidents</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Restaurant</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for incident in user.incidents %}
+                    <tr>
+                        <td>{{ incident.incidentType }}</td>
+                        <td>{{ incident.restaurant.name }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
